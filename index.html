@@ -31,6 +31,7 @@
       width: 100%;
       height: 100%;
       display: block;
+      object-fit: cover; /* s’assure que la vidéo remplit le conteneur */
     }
 
     #overlay-image {
@@ -61,14 +62,8 @@
   <script>
     function playVideo() {
       const video = document.getElementById('video-container');
-
-      // Débloque le son et lance la vidéo
       video.muted = false;
-      video.play().catch(err => {
-        console.log("Lecture automatique bloquée, l'utilisateur doit cliquer pour activer le son.");
-      });
-
-      // Masquer l'overlay
+      video.play().catch(err => console.log("Lecture bloquée, l'utilisateur doit cliquer pour activer le son."));
       document.getElementById('overlay-image').style.display = 'none';
     }
   </script>
